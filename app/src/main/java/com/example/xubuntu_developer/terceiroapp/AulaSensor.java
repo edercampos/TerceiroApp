@@ -11,6 +11,8 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Random;
+
 
 public class AulaSensor extends ActionBarActivity implements SensorEventListener {
     private SensorManager sensorManager;
@@ -55,8 +57,8 @@ public class AulaSensor extends ActionBarActivity implements SensorEventListener
         float y = values[1];
         float z = values[2];
 
-        TextView textView = (TextView) findViewById(R.id.text_view);
-        textView.setText(x + " , " + y + " , " + z);
+        //TextView textView = (TextView) findViewById(R.id.text_view);
+        //textView.setText(x + " , " + y + " , " + z);
 
         float accelationSquareRoot = (x * x + y * y + z * z)
                 / (SensorManager.GRAVITY_EARTH * SensorManager.GRAVITY_EARTH);
@@ -67,12 +69,44 @@ public class AulaSensor extends ActionBarActivity implements SensorEventListener
                 return;
             }
             lastUpdate = actualTime;
-            Toast.makeText(this, "O celular balançou: " + accelationSquareRoot, Toast.LENGTH_SHORT)
-                    .show();
+            //Toast.makeText(this, "O celular balançou: " + accelationSquareRoot, Toast.LENGTH_SHORT)
+            //       .show();
+           sortear();
         }
 
 
     }
+
+    public void sortear(){
+
+        Random gerador = new Random();
+        int numeroSorte = 0;
+
+        numeroSorte = gerador.nextInt(50)+1;
+        TextView textView = (TextView) findViewById(R.id.text_view);
+        textView.setText(Integer.toString(numeroSorte));
+
+        numeroSorte = gerador.nextInt(50)+1;
+        TextView textView2 = (TextView) findViewById(R.id.text_view2);
+        textView2.setText(Integer.toString(numeroSorte));
+
+        numeroSorte = gerador.nextInt(50)+1;
+        TextView textView3 = (TextView) findViewById(R.id.text_view3);
+        textView3.setText(Integer.toString(numeroSorte));
+
+        numeroSorte = gerador.nextInt(50)+1;
+        TextView textView4 = (TextView) findViewById(R.id.text_view4);
+        textView4.setText(Integer.toString(numeroSorte));
+
+        numeroSorte = gerador.nextInt(50)+1;
+        TextView textView5 = (TextView) findViewById(R.id.text_view5);
+        textView5.setText(Integer.toString(numeroSorte));
+
+        numeroSorte = gerador.nextInt(50)+1;
+        TextView textView6 = (TextView) findViewById(R.id.text_view6);
+        textView6.setText(Integer.toString(numeroSorte));
+    }
+
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy){
