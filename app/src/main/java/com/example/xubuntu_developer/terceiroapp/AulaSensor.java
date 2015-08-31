@@ -11,7 +11,10 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Iterator;
 import java.util.Random;
+import java.util.Set;
+import java.util.TreeSet;
 
 
 public class AulaSensor extends ActionBarActivity implements SensorEventListener {
@@ -80,31 +83,37 @@ public class AulaSensor extends ActionBarActivity implements SensorEventListener
     public void sortear(){
 
         Random gerador = new Random();
-        int numeroSorte = 0;
 
-        numeroSorte = gerador.nextInt(50)+1;
+        Set<Integer> numeros = new TreeSet<Integer>();
+
+        while (numeros.size() < 6){
+            numeros.add(gerador.nextInt(50) + 1);
+        }
+
+        Iterator<Integer> it = numeros.iterator();
+
         TextView textView = (TextView) findViewById(R.id.text_view);
-        textView.setText(Integer.toString(numeroSorte));
+        textView.setText(Integer.toString(it.next()));
 
-        numeroSorte = gerador.nextInt(50)+1;
+
         TextView textView2 = (TextView) findViewById(R.id.text_view2);
-        textView2.setText(Integer.toString(numeroSorte));
+        textView2.setText(Integer.toString(it.next()));
 
-        numeroSorte = gerador.nextInt(50)+1;
+
         TextView textView3 = (TextView) findViewById(R.id.text_view3);
-        textView3.setText(Integer.toString(numeroSorte));
+        textView3.setText(Integer.toString(it.next()));
 
-        numeroSorte = gerador.nextInt(50)+1;
+
         TextView textView4 = (TextView) findViewById(R.id.text_view4);
-        textView4.setText(Integer.toString(numeroSorte));
+        textView4.setText(Integer.toString(it.next()));
 
-        numeroSorte = gerador.nextInt(50)+1;
+
         TextView textView5 = (TextView) findViewById(R.id.text_view5);
-        textView5.setText(Integer.toString(numeroSorte));
+        textView5.setText(Integer.toString(it.next()));
 
-        numeroSorte = gerador.nextInt(50)+1;
+
         TextView textView6 = (TextView) findViewById(R.id.text_view6);
-        textView6.setText(Integer.toString(numeroSorte));
+        textView6.setText(Integer.toString(it.next()));
     }
 
 
